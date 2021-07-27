@@ -2,7 +2,7 @@ FROM archlinux:base-devel
 USER root
 # Install few essential stuffs for gitpod
 RUN curl -LO "https://repo.archlinuxcn.org/x86_64/glibc-linux4-2.33-4-x86_64.pkg.tar.zst" && bsdtar -C / -xvf "glibc-linux4-2.33-4-x86_64.pkg.tar.zst"
-RUN pacman -Syyu --noconfirm --needed clangd-9 tmate rclone nano sudo it bc inetutils zip libxml2 python3 jre-openjdk jdk-openjdk flex bison libc++ python-pip
+RUN pacman -Syyu --noconfirm --needed clangd-9 tmate rclone nano sudo bc inetutils zip libxml2 python3 jre-openjdk jdk-openjdk flex bison libc++ python-pip
 # Sudo hax "read README.md for info"
 RUN useradd -l -u 33333 -G sudo -md /home/gitpod -s /bin/bash -p gitpod gitpod \
     && sed -i.bkp -e 's/%sudo\s\+ALL=(ALL\(:ALL\)\?)\s\+ALL/%sudo ALL=NOPASSWD:ALL/g' /etc/sudoers \
